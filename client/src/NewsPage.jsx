@@ -1,3 +1,4 @@
+const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
 import { useEffect, useState } from "react";
 
 export default function NewsPage() {
@@ -8,7 +9,7 @@ export default function NewsPage() {
   useEffect(() => {
     async function loadNews() {
       try {
-        const response = await fetch("http://localhost:5000/api/news");
+        const response = await fetch(`${apiUrl}/api/news`);
 
         if (!response.ok) {
           throw new Error("The news server returned an error.");
