@@ -1,38 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: #f1f1f1;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 5%;
+  color: white;
+  background: #26394d;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand-mark {
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  gap: 18px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+main {
+  flex: 1;
+  width: 90%;
+  max-width: 1050px;
+  margin: 24px auto;
+}
+
+.page-card,
+.source-card,
 .note-form,
 .note-card {
-  margin-top: 20px;
-  padding: 20px;
+  padding: 18px;
+  border: 1px solid #ccc;
   background: white;
-  border: 1px solid #e5eaf2;
-  border-radius: 16px;
+}
+
+.page-card {
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  color: #555;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+h1 {
+  margin: 12px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+.page-card p:last-child,
+.status-message {
+  color: #555;
+}
+
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.source-card h2 {
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #ccc;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.story-list {
+  padding-left: 20px;
+}
+
+.story-list li {
+  margin: 12px 0;
+}
+
+.story-list summary {
+  color: #174f7a;
+  cursor: pointer;
+}
+
+.story-list details p {
+  line-height: 1.5;
+}
+
+.story-list a {
+  color: #174f7a;
+}
+
+.note-form,
+.note-card {
+  margin-top: 18px;
 }
 
 .note-form label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-weight: bold;
 }
 
 .note-form textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #cbd3df;
-  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #aaa;
   font: inherit;
 }
 
 .note-buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .note-buttons button {
-  padding: 8px 12px;
-  border: 0;
-  border-radius: 7px;
-  color: white;
-  background: #315ee8;
+  padding: 7px 12px;
+  border: 1px solid #777;
+  background: #eee;
   cursor: pointer;
 }
 
@@ -44,4 +167,30 @@
 .note-card > p {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+footer {
+  padding: 16px;
+  border-top: 1px solid #ccc;
+  color: #555;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    padding: 12px 4%;
+  }
+
+  nav {
+    gap: 10px;
+  }
+
+  main {
+    width: 94%;
+    margin: 16px auto;
+  }
+
+  .source-grid {
+    grid-template-columns: 1fr;
+  }
 }
