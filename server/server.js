@@ -27,11 +27,15 @@ const feeds = [
   },
 ];
 
-function cleanSummary(text = "") {
-  return text
+function cleanText(text = "") {
+  return String(text)
     .replace(/<[^>]*>/g, " ")
     .replace(/&nbsp;/g, " ")
     .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -45,8 +49,8 @@ app.get("/api/news", async (_request, response) => {
         return {
           source: feed.name,
           items: (result.items || []).slice(0, 5).map((item) => ({
-            title: item.title || "Untitled story",
-            summary: cleanSummary(
+            title: cleanText(item.title || "Untitled story"),
+            summary: cleanText(
               item.contentSnippet || item.content || "Summary not available.",
             ),
             link: item.link || "#",
